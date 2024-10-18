@@ -34,6 +34,9 @@ if (file_exists('messages.txt')) {
                     <a class="nav-link" href="admin.php">Mesajlar <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="admin.php">Admin Sayfası</a> <!-- Yeni eklenen bağlantı -->
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Çıkış</a>
                 </li>
             </ul>
@@ -59,12 +62,14 @@ if (file_exists('messages.txt')) {
                     if (count($lines) >= 3) {
                         $name = str_replace('Ad: ', '', $lines[0]);
                         $email = str_replace('E-posta: ', '', $lines[1]);
-                        $msg = str_replace('Mesaj: ', '', $lines[2]);
-                        echo "<tr>
-                                <td>$name</td>
-                                <td>$email</td>
-                                <td>$msg</td>
-                              </tr>";
+                        $message_text = implode("\n", array_slice($lines, 2));
+                        ?>
+                        <tr>
+                            <td><?= $name ?></td>
+                            <td><?= $email ?></td>
+                            <td><?= $message_text ?></td>
+                        </tr>
+                        <?php
                     }
                 }
                 ?>
@@ -72,13 +77,7 @@ if (file_exists('messages.txt')) {
         </table>
     </div>
 
-    <footer class="bg-light text-center py-4">
-        <p>&copy; 2023 Admin Panel. Tüm hakları saklıdır.</p>
-    </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>

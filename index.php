@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap ile Detaylı Site</title>
+    <title>Ana Sayfa</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,14 +23,25 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">İletişim</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="payment.php">Ödeme</a>
+                </li>
             </ul>
         </div>
     </nav>
 
     <div class="container mt-5">
         <h1>Hoş Geldiniz!</h1>
-        <p>Bu detaylı bir Bootstrap örnek sitesidir.</p>
-        <button id="myButton" class="btn btn-primary">Tıkla</button>
+        <p>Web sitemize hoş geldiniz. Burada çeşitli ürünler bulabilir ve ödeme işlemlerinizi gerçekleştirebilirsiniz.</p>
+        
+        <h2>Hakkında</h2>
+        <p>Bu web sitesi, kullanıcıların ihtiyaçlarına yönelik çeşitli ürün ve hizmetler sunmaktadır. Amacımız, kullanıcılarımıza en iyi deneyimi sağlamaktır.</p>
+
+        <h2>İletişim</h2>
+        <p>Bizimle iletişime geçmek için lütfen <a href="contact.php">İletişim</a> sayfasını ziyaret edin.</p>
+
+        <h2>Ödeme Yapmak İçin Aşağıdaki Butona Tıklayın</h2>
+        <a href="payment.php" class="btn btn-primary">Ödeme Sayfasına Git</a>
     </div>
 
     <footer class="bg-light text-center py-4">
@@ -41,6 +51,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>

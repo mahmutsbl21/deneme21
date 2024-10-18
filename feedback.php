@@ -35,7 +35,22 @@
         <img src="https://egemeclisicom.teimg.com/crop/1280x720/egemeclisi-com/images/haberler/havali-insanlarin-havali-sozleri216b18ad437a266a8c44.jpg" alt="Logo" class="img-fluid">
         
         <h2 class="mt-5">Geri Bildirim</h2>
+        
         <?php
+        // Geri bildirimleri dosyadan oku ve görüntüle
+        $file = 'feedback.txt';
+        if (file_exists($file)) {
+            $feedbacks = file($file, FILE_IGNORE_NEW_LINES);
+            if (!empty($feedbacks)) {
+                echo "<div class='mb-4'>";
+                foreach ($feedbacks as $feedback) {
+                    echo "<div class='alert alert-info'>$feedback</div>";
+                }
+                echo "</div>";
+            }
+        }
+
+        // Form gönderimi kontrolü
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Formdan gelen verileri al
             $name = htmlspecialchars($_POST['name']);
@@ -43,7 +58,6 @@
             $feedback = htmlspecialchars($_POST['feedback']);
 
             // Geri bildirim verilerini dosyaya yaz
-            $file = 'feedback.txt';
             $current = file_get_contents($file);
             $current .= "İsim: $name, Soyisim: $surname, Geri Bildirim: $feedback\n";
             file_put_contents($file, $current);
@@ -52,6 +66,7 @@
             echo "<div class='alert alert-success'>Geri bildiriminiz için teşekkür ederiz!</div>";
         }
         ?>
+
         <form action="" method="POST">
             <div class="form-group">
                 <label for="name">İsim:</label>
